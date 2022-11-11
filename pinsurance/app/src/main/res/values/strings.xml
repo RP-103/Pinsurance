@@ -14,5 +14,5 @@
     <string name="registerTitle">註冊帳號</string>
     <string name="register_name">姓名</string>
     <string name="register_birthday">生日</string>
-    <string name="home_introduce">我是富邦產險智能助理，需要任何協助嗎？</string>
+    <string name="home_introduce">我是富邦人壽智能助理，需要任何協助嗎？</string>
 </resources>
