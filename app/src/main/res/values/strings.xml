@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">pinsurance</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="loginTitle">登入帳號</string>
+    <string name="login_forgot_pw">忘記密碼？</string>
+    <string name="login_no_account">我沒有帳號  <font color="#6E4378"><b>註冊</b></font></string>
+    <string name="login_have_account">
+        我有帳號  <font color="#6E4378"><b>登入</b></font>
+    </string>
+    <string name="btn_login">登入</string>
+    <string name="btn_register">註冊</string>
+    <string name="registerTitle">註冊帳號</string>
+    <string name="register_name">姓名</string>
+    <string name="register_birthday">生日</string>
+    <string name="home_introduce">我是富邦人壽智能助理，需要任何協助嗎？</string>
+</resources>
