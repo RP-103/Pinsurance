@@ -10,6 +10,8 @@ import com.example.pinsurance.R
 class PersonAdapter(private val personList:ArrayList<Person>)
     : RecyclerView.Adapter<PersonAdapter.PersonViewHolder>() {
 
+    var OnItemClick : ((Person) -> Unit)? = null
+
     class PersonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textView : TextView = itemView.findViewById(R.id.in_per_name)
     }
@@ -22,6 +24,10 @@ class PersonAdapter(private val personList:ArrayList<Person>)
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
         val person = personList[position]
         holder.textView.text = person.name
+
+        holder.itemView.setOnClickListener {
+            OnItemClick?.invoke(person)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -13,6 +13,13 @@
         android:theme="@style/Theme.Pinsurance"
         tools:targetApi="31">
         <activity
+            android:name=".handin.DetailedActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ChatRoomActivity"
             android:exported="false">
             <meta-data
@@ -20,21 +27,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".DetailedActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".HandInActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Hand_inActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
