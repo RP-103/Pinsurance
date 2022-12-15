@@ -1,15 +1,19 @@
 package com.example.pinsurance
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.lifecycle.enableSavedStateHandles
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pinsurance.databinding.ActivityHandInBinding
+import com.example.pinsurance.handin.DetailedActivity
 import com.example.pinsurance.handin.Person
 import com.example.pinsurance.handin.PersonAdapter
 
 class HandInActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityHandInBinding
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var personList: ArrayList<Person>
@@ -17,7 +21,8 @@ class HandInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hand_in)
+        binding = ActivityHandInBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         /** adding back button */
         val display = supportActionBar
@@ -38,6 +43,12 @@ class HandInActivity : AppCompatActivity() {
 
         personAdapter = PersonAdapter(personList)
         recyclerView.adapter = personAdapter
+
+        personAdapter.OnItemClick = {
+            val intent = Intent(this, DetailedActivity::class.java)
+            intent.putExtra("PERSON" , it)
+            startActivity(intent)
+        }
     }
 
     /** clicking back button */

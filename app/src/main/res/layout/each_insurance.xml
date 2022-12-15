@@ -3,8 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="2dp"
-    app:cardElevation="3dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    android:padding="20dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -15,53 +16,89 @@
         android:background="@color/beige_white">
         
         <TextView
-            android:id="@+id/insurance_name"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="富利人生變額年金保險"
-            android:textSize="22sp"
-            android:padding="16dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:padding="20dp"
             android:textColor="@color/purple_900"
             />
         
         <RelativeLayout
-            android:id="@+id/expandable_insurance"
+            android:id="@+id/expandable_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/insurance_year"
+                android:id="@+id/maturity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="到期日"
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/purple"
+                />
+
+
+            <TextView
+                android:id="@+id/start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="投保日"
+                android:padding="16dp"
+                android:textSize="12sp"
+                android:layout_below="@id/maturity"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/payment_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="繳費年期"
+                android:padding="16dp"
+                android:textSize="12sp"
+                android:layout_below="@id/start"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/guarantee_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="保障年期"
                 android:padding="16dp"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/purple"
-                />
-
-            <TextView
-                android:id="@+id/insurance_coin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="幣別"
-                android:padding="16dp"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/purple"
-                android:layout_alignParentEnd="true"
-                />
-
-            <TextView
-                android:id="@+id/insurance_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="身故保證!附保證最低身故保險金機制之連結類全委帳戶保障"
-                android:padding="16dp"
-                android:textSize="16sp"
-                android:layout_below="@id/insurance_year"
+                android:textSize="12sp"
+                android:layout_below="@id/payment_year"
                 android:textColor="@color/black"
                 />
+
+            <TextView
+                android:id="@+id/category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="繳費類別"
+                android:padding="16dp"
+                android:textSize="12sp"
+                android:layout_below="@id/guarantee_year"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="保費"
+                android:padding="16dp"
+                android:textSize="12sp"
+                android:layout_below="@id/category"
+                android:textColor="@color/black"
+                />
+
+
 
         </RelativeLayout>
 

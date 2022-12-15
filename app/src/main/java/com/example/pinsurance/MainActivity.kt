@@ -4,9 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.pinsurance.chatbot.ChatRoomActivity
 import com.example.pinsurance.databinding.ActivityMainBinding
 import com.example.pinsurance.fragments.AccountFragment
-import com.example.pinsurance.fragments.ChatroomFragment
 import com.example.pinsurance.fragments.HomeFragment
 
 class MainActivity : AppCompatActivity() {

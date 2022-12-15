@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.pinsurance.R
+import com.example.pinsurance.databinding.FragmentHomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +23,10 @@ class HomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding: FragmentHomeBinding
+    private lateinit var introSlideList : List<IntroSlide>
+    private lateinit var introSliderAdapter : IntroSliderAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,8 +39,15 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        loadIntroSlide()
+        introSliderAdapter = IntroSliderAdapter(introSlideList)
+        binding.introSliderViewPager.adapter = introSliderAdapter
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return binding.root
+
     }
 
     companion object {
@@ -56,5 +68,13 @@ class HomeFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    // add items to the list
+    private fun loadIntroSlide() {
+        introSlideList = listOf(
+            IntroSlide("信用卡繳費可以授權的銀行、是否有保費折扣？", "繳費信用卡有效期限更新方法", "下載「信用卡付款授權書」"),
+            IntroSlide("RP", "Canflyhhh", "Yuki")
+        )
     }
 }

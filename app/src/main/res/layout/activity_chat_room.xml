@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@color/purple_700"
-    tools:context=".ChatRoomActivity">
+    tools:context=".chatbot.ChatRoomActivity">
 
     <View
         android:id="@+id/viewBackground"
@@ -14,33 +14,23 @@
         android:layout_height="0dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/chat_background_content_top"
-        app:layout_constraintBottom_toTopOf="@+id/layoutSend"
+        app:layout_constraintBottom_toTopOf="@+id/btnSend"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/chatRecyclerView"
+        android:id="@+id/chatView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:clipToPadding="false"
         android:orientation="vertical"
-        android:overScrollMode="never"
         android:padding="10dp"
-        android:visibility="gone"
+        tools:listitem="@layout/adapter_message_one"
+        tools:itemCount="2"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="@id/viewBackground"
-        app:layout_constraintTop_toBottomOf="parent"/>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="@id/viewBackground"
-        app:layout_constraintEnd_toEndOf="@id/viewBackground"
-        app:layout_constraintStart_toStartOf="@id/viewBackground"
         app:layout_constraintTop_toTopOf="@id/viewBackground"/>
 
     <FrameLayout
-        android:id="@+id/layoutSend"
+        android:id="@+id/btnSend"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="20dp"
@@ -54,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="8dp"
-            android:src="@drawable/ic_mic"/>
+            android:src="@drawable/ic_send"/>
     </FrameLayout>
 
     <EditText
@@ -76,7 +66,7 @@
         android:paddingEnd="10dp"
         android:textColor="@color/beige_white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/layoutSend"
+        app:layout_constraintEnd_toStartOf="@+id/btnSend"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <FrameLayout
