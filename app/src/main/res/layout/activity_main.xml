@@ -16,7 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/menu"
-        android:background="#6E4378"
+        android:background="#518CD5"
         app:itemIconTint="#ffff"
         app:itemTextColor="#ffff" />
 

@@ -6,9 +6,10 @@
 
     <Button
         android:id="@+id/button"
+        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="48dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
@@ -16,6 +17,8 @@
         android:layout_marginBottom="2dp"
         android:padding="5dp"
         android:text="Button"
-        />
+        android:textColor="@color/Deep_Chestnut"
+        app:strokeColor="@color/Deep_Chestnut" />
+
 
 </RelativeLayout>

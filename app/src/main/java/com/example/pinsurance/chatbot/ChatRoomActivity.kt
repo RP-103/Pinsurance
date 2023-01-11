@@ -13,17 +13,19 @@ import com.google.api.gax.core.FixedCredentialsProvider
 import com.google.auth.oauth2.GoogleCredentials
 import com.google.auth.oauth2.ServiceAccountCredentials
 import com.google.cloud.dialogflow.v2.*
+import com.google.protobuf.ListValue
+import com.google.protobuf.Value
 import kotlinx.coroutines.Dispatchers.Default
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONObject
 import java.util.*
 import kotlin.collections.ArrayList
 
 
 class ChatRoomActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatRoomBinding
-    private var messageList: ArrayList<Message> = ArrayList()
 
     private var itemList: ArrayList<ChatItem> = ArrayList()
     private lateinit var chatAdapter: ChatAdapter
@@ -34,7 +36,7 @@ class ChatRoomActivity : AppCompatActivity() {
     private val uuid = UUID.randomUUID().toString()
 
     // payload custom
-    var chipList: List<Chip> = ArrayList()
+    var chipList: ArrayList<Chip> = ArrayList()
 
 
     @SuppressLint("NotifyDataSetChanged")
@@ -95,7 +97,7 @@ class ChatRoomActivity : AppCompatActivity() {
         binding.chatView.layoutManager?.scrollToPosition(itemList.size - 1)
     }
 
-    private  fun addChipToList(chipList: List<Chip>) {
+    private fun addChipToList(chipList: List<Chip>) {
 
         itemList.add(ChatItem.ChipRecyclerView(chipList))
         chatAdapter.notifyDataSetChanged()
@@ -161,20 +163,56 @@ class ChatRoomActivity : AppCompatActivity() {
                 if (e.hasPayload()) {
                     // string list
 
-                    Log.d("PPPPP payload fields count", e.payload.fieldsCount.toString())
-                    e.payload.fieldsMap.forEach { (key, value) ->
-                        Log.d("ppp key", key.toString())
-                        Log.d("ppp value", value.toString())
+                     // Log.d("PPPPP payload fields count", e.payload.fieldsCount.toString())
+
+                    e.payload.fieldsMap.forEach { (key, v) ->
+                        Log.d("ppp key", key.toString()) // richContent
+
+                        if (v.hasListValue()) {
+                            val l: ListValue = v.listValue
+                            val lSize: Int = l.valuesCount
+                            Log.d("************** l size= ", lSize.toString())
+
+                            val v1: Value = l.getValues(0)
+                            if (v1.hasListValue()) {
+                                val l1: ListValue = v1.listValue
+                                val l1Size: Int = l.valuesCount
+                                Log.d("************** l1 size= ", l1Size.toString())
+
+                                val v2: Value = l1.getValues(0)
+                                if (v2.hasStructValue()) {
+                                    val s = v2.structValue
+                                    val sCount = s.fieldsCount
+                                    Log.d("************** fields count = ", sCount.toString())
+
+                                    s.fieldsMap.forEach { (kk, vv) ->
+
+                                        if (kk == "type") {
+                                            Log.d("************** type  = ", vv.toString())
+                                        }
+                                        else if (kk == "options") {
+                                            Log.d("************** options  = ", vv.toString())
+                                            val opt: ListValue = vv.listValue
+                                            val optCount: Int = opt.valuesCount
+                                            Log.d("************** opt size= ", optCount.toString())
+
+                                            for (i in 0 until optCount) {
+                                                val o = opt.getValues(i).structValue
+                                                Log.d("################## o = ", o.toString())
+                                                val optField = o.fieldsMap
+                                                Log.d("################## opt keys(text) = ", optField["text"].toString())
+                                                val optText = optField["text"]
+                                                chipList.add(Chip(optText?.stringValue.toString(), false))
+                                            }
+                                        }
+
+                                    }
+
+                                }
+                            }
+                        }
                     }
 
-                    // update string list to buttons
-
-                    chipList = listOf(
-                        Chip("One", false),
-                        Chip("Two", false),
-                        Chip("Three", false),
-                        Chip("Four", false),
-                    )
                     addChipToList(chipList)
                 }
                 else if (e.hasText()) {

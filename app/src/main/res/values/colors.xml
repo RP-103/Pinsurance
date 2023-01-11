@@ -16,4 +16,14 @@
     <color name="purple_gray">#DFD9E0</color>
     <color name="beige_white">#FFFAEE</color>
     <color name="purple">#5D4A69</color>
+    <color name="sky_blue">#EDF5F7</color>
+    <color name="gray_blue">#717CA3</color>
+
+    <color name="blue_50">#E5E9F5</color>
+    <color name="blue_100">#54A0B4</color>
+    <color name="blue_200">#518CD5</color>
+    <color name="blue_500">#356BAF</color>
+    <color name="blue_600">#435278</color>
+    <color name="blue_700">#4a4d69</color>
+    <color name="blue_900">#4C4558</color>
 </resources>

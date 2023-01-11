@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Pinsurance" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/blue_500</item>
+        <item name="colorPrimaryVariant">@color/blue_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,9 +12,12 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.Material3.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.Material3.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.Material3.LabelSmall</item>
     </style>
 
-    <style name="ButtonPurple">
+    <style name="ButtonBlue">
         <item name="android:background">@drawable/round_bg</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">16sp</item>
@@ -22,13 +25,13 @@
 
     <style name="HomeBtn">
         <item name="android:background">@drawable/home_btn</item>
-        <item name="android:textColor">@color/purple_700</item>
+        <item name="android:textColor">@color/blue_700</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="Title">
-        <item name="android:textColor">@color/purple_700</item>
+        <item name="android:textColor">@color/blue_900</item>
         <item name="android:textSize">36dp</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -40,7 +43,7 @@
     </style>
 
     <style name="HomeTitle">
-        <item name="android:textColor">@color/purple_700</item>
+        <item name="android:textColor">@color/blue_700</item>
         <item name="android:textSize">26dp</item>
         <item name="android:textStyle">bold</item>
     </style>
